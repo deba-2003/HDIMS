@@ -6,13 +6,17 @@ import 'patient_list_screen.dart'; // Import the new screen
 class AppDrawer extends StatelessWidget {
   final String userName;
   final String userRole;
-  final String? facilityId; // Added this! It's optional (?) because Super Admins don't have one
+  final String? facilityId;
+  final String? district; 
+  final String? state; // Added this! It's optional (?) because Super Admins don't have one
 
   const AppDrawer({
     super.key,
     required this.userName,
     required this.userRole,
-    this.facilityId, 
+    this.facilityId,
+    this.district, // Add this
+    this.state,    // Add this 
   });
 
   void _handleLogout(BuildContext context) {
@@ -67,6 +71,8 @@ class AppDrawer extends StatelessWidget {
                     builder: (context) => PatientRegistrationScreen(
                       facilityId: facilityId!,
                       facilityName: userName,
+                      district: district ?? 'khurda', // Pass the district
+                      state: state ?? 'Odisha', // Pass the state
                       // Note: To make this perfect, you should also pass the district from the Facility screen here so it saves to the DB!
                     ),
                 ));

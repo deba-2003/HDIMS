@@ -120,6 +120,8 @@ class _FacilityDataEntryScreenState extends State<FacilityDataEntryScreen> {
         userName: widget.facilityName, 
         userRole: 'Facility',
         facilityId: widget.facilityId,
+        district: widget.district,
+        state: widget.state,
       ),
 
       body: Padding(

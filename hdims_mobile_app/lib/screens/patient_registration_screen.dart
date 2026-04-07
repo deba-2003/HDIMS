@@ -6,11 +6,15 @@ import 'api_constants.dart';
 class PatientRegistrationScreen extends StatefulWidget {
   final String facilityId;
   final String facilityName;
+  final String district; // Add this
+  final String state;
 
   const PatientRegistrationScreen({
     super.key,
     required this.facilityId,
     required this.facilityName,
+    required this.district, // Add this
+    required this.state,    // Add this
   });
 
   @override
@@ -56,6 +60,8 @@ class _PatientRegistrationScreenState extends State<PatientRegistrationScreen> {
         body: jsonEncode({
           'facilityId': widget.facilityId,
           'facilityName': widget.facilityName,
+          'district': widget.district, // <--- ADD THIS LINE
+          'state': widget.state,
           'patientName': _nameController.text.trim(),
           'age': int.parse(_ageController.text.trim()),
           'gender': _selectedGender,
